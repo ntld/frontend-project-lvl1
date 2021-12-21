@@ -17,10 +17,24 @@ function generateQuestion() {
 
 function collectUserAnswer() {
   const userAnswer = readlineSync.question('Your answer: ');
-  if (userAnswer === 'yes') {
-    return true;
+  return userAnswer;
+}
+
+function transformToBool(string) {
+  let result = null;
+  if (string === 'yes') {
+    result = true;
+  } else if (string === 'no') {
+    result = false;
   }
-  return false;
+  return result;
+}
+
+function transformToSting(boolValue) {
+  if (boolValue === true) {
+    return 'yes';
+  }
+  return 'no';
 }
 
 function isEven(number) {
@@ -32,28 +46,24 @@ function isEven(number) {
 }
 console.log('Welcome to the Brain Games!');
 const userName = greeting();
+console.log('Answer "yes" if the number is even, otherwise answer "no".');
 
 let numberOfCorrectAnswer = 0;
 let endGame = false;
 
 while (numberOfCorrectAnswer < 3 && endGame !== true) {
-  console.log('Answer "yes" if the number is even, otherwise answer "no".');
   const genNumber = generateQuestion();
   const checkedNumber = isEven(genNumber);
-  const answer = collectUserAnswer();
+  const userAnswer = collectUserAnswer();
+  const answer = transformToBool(userAnswer);
 
   if (checkedNumber === answer) {
     numberOfCorrectAnswer += 1;
     console.log('Correct!');
-  } else if (checkedNumber !== answer && answer === true) {
-    endGame = true;
-    numberOfCorrectAnswer = 0;
-    console.log("'yes' is wrong answer ;(. Correct answer was 'no'.");
-    console.log(`Let's try again, ${userName}!`);
   } else {
     endGame = true;
+    console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${transformToSting(checkedNumber)}'.`);
     numberOfCorrectAnswer = 0;
-    console.log("'no' is wrong answer ;(. Correct answer was 'yes'.");
     console.log(`Let's try again, ${userName}!`);
   }
 }
