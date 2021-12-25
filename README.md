@@ -17,4 +17,4 @@
 
 ### Brain-gcd game:
 
-[![asciicast](https://asciinema.org/a/458486.svg)](https://asciinema.org/a/458486)
+[![asciicast](https://asciinema.org/a/458487.svg)](https://asciinema.org/a/458487)
