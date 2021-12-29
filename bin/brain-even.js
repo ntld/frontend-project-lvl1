@@ -1,12 +1,5 @@
 #!/usr/bin/env node
-import { getRandomInRange, playGame } from '../src/index.js';
-
-function transformToString(boolValue) {
-  if (boolValue === true) {
-    return 'yes';
-  }
-  return 'no';
-}
+import { getRandomInRange, transformToString, playGame } from '../src/index.js';
 
 function isEven(number) {
   let evenNumber = false;

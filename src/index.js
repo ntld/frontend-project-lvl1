@@ -5,6 +5,13 @@ function getRandomInRange(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function transformToString(boolValue) {
+  if (boolValue === true) {
+    return 'yes';
+  }
+  return 'no';
+}
+
 function collectUserAnswer() {
   const userAnswer = readlineSync.question('Your answer: ');
   return userAnswer;
@@ -38,4 +45,4 @@ function playGame(rules, generateQuestion) {
   }
 }
 
-export { getRandomInRange, playGame };
+export { getRandomInRange, transformToString, playGame };
