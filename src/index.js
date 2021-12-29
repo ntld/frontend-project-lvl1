@@ -5,7 +5,7 @@ function getRandomInRange(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function transformToString(boolValue) {
+function transformBooleanToString(boolValue) {
   if (boolValue === true) {
     return 'yes';
   }
@@ -22,27 +22,26 @@ function playGame(rules, generateQuestion) {
   const userName = greeting();
   console.log(rules);
 
-  let numberOfCorrectAnswer = 0;
-  let endGame = false;
+  let numberOfCorrectAnswers = 0;
 
-  while (numberOfCorrectAnswer < 3 && endGame !== true) {
+  while (numberOfCorrectAnswers < 3) {
     const correctAnswer = generateQuestion();
     const userAnswer = collectUserAnswer();
 
     if (correctAnswer === userAnswer) {
-      numberOfCorrectAnswer += 1;
+      numberOfCorrectAnswers += 1;
       console.log('Correct!');
     } else {
-      endGame = true;
       console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
-      numberOfCorrectAnswer = 0;
+      numberOfCorrectAnswers = 0;
       console.log(`Let's try again, ${userName}!`);
+      break;
     }
   }
 
-  if (numberOfCorrectAnswer === 3) {
+  if (numberOfCorrectAnswers === 3) {
     console.log(`Congratulations, ${userName}!`);
   }
 }
 
-export { getRandomInRange, transformToString, playGame };
+export { getRandomInRange, transformBooleanToString, playGame };

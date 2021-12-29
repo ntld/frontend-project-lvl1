@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { getRandomInRange, transformToString, playGame } from '../src/index.js';
+import { getRandomInRange, transformBooleanToString, playGame } from '../src/index.js';
 
 const isPrime = (number) => {
   let primeNumber = true;
@@ -9,7 +9,7 @@ const isPrime = (number) => {
       break;
     }
   }
-  return transformToString(primeNumber);
+  return transformBooleanToString(primeNumber);
 };
 
 function generateQuestion() {

@@ -17,17 +17,17 @@ function generateSequence() {
   return result;
 }
 
-function maskArray(arr, maskIndex) {
+function maskSequence(arr, maskIndex) {
   const result = arr.slice();
   result[maskIndex] = '..';
-  return result;
+  return result.join(' ');
 }
 
 function generateQuestion() {
   const numberSequence = generateSequence();
   const maskIndex = getRandomInRange(0, numberSequence.length - 1);
   const correctAnswer = numberSequence[maskIndex];
-  const maskedSequence = maskArray(numberSequence, maskIndex);
+  const maskedSequence = maskSequence(numberSequence, maskIndex);
   const question = `Question: ${maskedSequence}`;
   console.log(question);
   return String(correctAnswer);

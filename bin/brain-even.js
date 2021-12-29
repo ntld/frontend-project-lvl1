@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-import { getRandomInRange, transformToString, playGame } from '../src/index.js';
+import { getRandomInRange, transformBooleanToString, playGame } from '../src/index.js';
 
 function isEven(number) {
   let evenNumber = false;
   if (number % 2 === 0) {
     evenNumber = true;
   }
-  return transformToString(evenNumber);
+  return transformBooleanToString(evenNumber);
 }
 
 function generateQuestion() {
