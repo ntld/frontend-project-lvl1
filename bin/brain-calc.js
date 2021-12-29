@@ -1,11 +1,5 @@
 #!/usr/bin/env node
-import playGame from '../src/index.js';
-
-function getRandomInRange() {
-  const min = 1;
-  const max = 100;
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+import { getRandomInRange, playGame } from '../src/index.js';
 
 function generateRandomOperator() {
   const arr = ['+', '-', '*'];
@@ -27,8 +21,8 @@ function calculate(num1, num2, operator) {
 }
 
 function generateQuestion() {
-  const num1 = getRandomInRange();
-  const num2 = getRandomInRange();
+  const num1 = getRandomInRange(1, 100);
+  const num2 = getRandomInRange(1, 100);
   const operator = generateRandomOperator();
   const question = `Question: ${num1} ${operator} ${num2}`;
   console.log(question);

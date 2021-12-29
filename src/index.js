@@ -1,12 +1,16 @@
 import readlineSync from 'readline-sync';
 import greeting from './cli.js';
 
+function getRandomInRange(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function collectUserAnswer() {
   const userAnswer = readlineSync.question('Your answer: ');
   return userAnswer;
 }
 
-export default function playGame(rules, generateQuestion) {
+function playGame(rules, generateQuestion) {
   console.log('Welcome to the Brain Games!');
   const userName = greeting();
   console.log(rules);
@@ -33,3 +37,5 @@ export default function playGame(rules, generateQuestion) {
     console.log(`Congratulations, ${userName}!`);
   }
 }
+
+export { getRandomInRange, playGame };

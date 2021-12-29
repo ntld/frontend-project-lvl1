@@ -1,11 +1,5 @@
 #!/usr/bin/env node
-import playGame from '../src/index.js';
-
-function getRandomInRange() {
-  const min = 1;
-  const max = 100;
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+import { getRandomInRange, playGame } from '../src/index.js';
 
 function transformToString(boolValue) {
   if (boolValue === true) {
@@ -23,7 +17,7 @@ function isEven(number) {
 }
 
 function generateQuestion() {
-  const number = getRandomInRange();
+  const number = getRandomInRange(1, 100);
   const question = `Question: ${number}`;
   console.log(question);
   return isEven(number);
